@@ -1,0 +1,44 @@
+.container {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: #a8dadc;
+  padding-top: 5%;
+}
+
+.form {
+  border-radius: 5px;
+  background-color: #f1faee;
+  margin: 0% 15%;
+  padding: 5% 10%;
+}
+
+.head hr{
+  margin-bottom: 5%;
+  color: aqua;
+}
+
+.first-half-width{
+  margin-right: 2%;
+  width: 48%;
+}
+
+.half-width{
+  width: 50%;
+}
+
+.full-width{
+  width: 100%;
+}
+
+.button-row{
+  margin-top: 2%;
+  align-content: center;
+}
+
+.button-row button{
+  right: -25%;
+  left: 25%;
+  margin-right: 2%;
+  width: 150px;
+}

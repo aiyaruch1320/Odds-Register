@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="form">
+    <div class="head">
+      <h2>Odds Register</h2>
+      <hr />
+    </div>
+    <form [formGroup]="registerForm">
+      <mat-form-field
+        appearance="fill"
+        style="margin-right: 2%"
+        class="first-half-width"
+      >
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" />
+        <mat-error *ngIf="registerForm.hasError('required', 'firstName')">
+          โปรดกรอกข้อมูลลงในช่องว่าง
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" />
+        <mat-error *ngIf="registerForm.hasError('required', 'firstName')">
+          โปรดกรอกข้อมูลลงในช่องว่าง
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="fill"
+        style="margin-right: 2%"
+        class="first-half-width"
+      >
+        <mat-label>Sex</mat-label>
+        <mat-select formControlName="sex">
+          <mat-option>เลือกเพศ</mat-option>
+          <mat-option value="ไม่ต้องการระบุ">ไม่ต้องการระบุ</mat-option>
+          <mat-option value="ชาย">ชาย</mat-option>
+          <mat-option value="หญิง">หญิง</mat-option>
+        </mat-select>
+        <mat-error *ngIf="registerForm.hasError('required', 'sex')">
+          กรุณาระบุเพศ
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-label>Birth Date</mat-label>
+        <input matInput type="date" formControlName="birthDate" />
+        <mat-error *ngIf="registerForm.hasError('required', 'birthDate')">
+          กรุณาระบุวันเกิด
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Tel</mat-label>
+        <input matInput type="tel" maxlength="10" formControlName="tel" />
+        <mat-error *ngIf="registerForm.hasError('required', 'tel')">
+          โปรดกรอกข้อมูลลงในช่องว่าง
+        </mat-error>
+        <mat-error *ngIf="registerForm.hasError('pattern', 'tel')">
+          *เบอร์โทรต้องขึ้นต้นด้วย 08,06,02
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+        <mat-error *ngIf="registerForm.hasError('required', 'email')">
+          โปรดกรอกข้อมูลลงในช่องว่าง
+        </mat-error>
+        <mat-error *ngIf="registerForm.hasError('email', 'email')">
+          รูปแบบ Email ไม่ถูกต้อง
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Enter your password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          [type]="hide_pass ? 'password' : 'text'"
+        />
+        <mat-error *ngIf="registerForm.hasError('required', 'password')">
+          โปรดกรอกข้อมูลลงในช่องว่าง
+        </mat-error>
+        <mat-error *ngIf="registerForm.hasError('pattern', 'password')">
+          รหัสผ่านต้องประกอบไปด้วยตัวอักษรพิมพ์ใหญ่, พิมพ์เล็ก, อักษระพิเศษ
+          และตัวเลข
+        </mat-error>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide_pass = !hide_pass"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide_pass"
+        >
+          <mat-icon>{{ hide_pass ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Confirm your password</mat-label>
+        <input
+          formControlName="confirmPassword"
+          matInput
+          [type]="hide_confirmPass ? 'password' : 'text'"
+          [errorStateMatcher]="matcher"
+        />
+        <mat-error *ngIf="registerForm.hasError('required', 'confirmPassword')">
+          โปรดกรอกข้อมูลลงในช่องว่าง
+        </mat-error>
+        <mat-error *ngIf="registerForm.hasError('notSame')">
+          รหัสผ่านไม่ตรงกัน
+        </mat-error>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide_confirmPass = !hide_confirmPass"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide_confirmPass"
+        >
+          <mat-icon>{{ hide_confirmPass ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button type="submit" mat-raised-button color="primary">
+          Register
+        </button>
+        <button type="reset" mat-raised-button color="warn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
