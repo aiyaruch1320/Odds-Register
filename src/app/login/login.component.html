@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="form">
+    <div class="head">
+      <h2>Odds Login</h2>
+      <hr />
+    </div>
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+        <mat-error *ngIf="loginForm.hasError('required', 'email')">
+          โปรดกรอกข้อมูลลงในช่องว่าง
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          [type]="hide_pass ? 'password' : 'text'"
+        />
+        <mat-error *ngIf="loginForm.hasError('required', 'password')">
+          โปรดกรอกข้อมูลลงในช่องว่าง
+        </mat-error>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide_pass = !hide_pass"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide_pass"
+        >
+          <mat-icon>{{ hide_pass ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button type="submit" mat-raised-button color="primary">
+          Login
+        </button>
+        <button type="reset" mat-raised-button color="warn">Cancel</button>
+      </div>
+    </form>
+
+    <div class="register">
+      <hr>
+      <span>ยังไม่มีบัญชี​​ ?  <a href="/register">สมัครเลย</a></span>
+    </div>
+  </div>
+</div>

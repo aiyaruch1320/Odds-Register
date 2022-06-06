@@ -1,0 +1,64 @@
+.container {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: url(https://media.istockphoto.com/vectors/abstract-blurred-colorful-background-vector-id1248542684?k=20&m=1248542684&s=612x612&w=0&h=1yKiRrtPhiqUJXS_yJDwMGVHVkYRk2pJX4PG3TT4ZYM=);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 5%;
+  padding-bottom: 50px;
+}
+
+.form {
+  border-radius: 5px;
+  background-color: #f1faee;
+  margin: 0% 25%;
+  padding: 5% 10%;
+}
+
+.head hr{
+  margin-bottom: 5%;
+  color: aqua;
+}
+
+.first-half-width{
+  margin-right: 2%;
+  width: 48%;
+}
+
+.half-width{
+  width: 50%;
+}
+
+.full-width{
+  width: 100%;
+}
+
+.button-row{
+  margin-top: 2%;
+  align-content: center;
+}
+
+.button-row button{
+  right: -15%;
+  left: 15%;
+  margin-right: 2%;
+  width: 150px;
+}
+
+.register {
+  text-align: center;
+}
+
+.register hr {
+  margin: 20px 0 20px 0;
+}
+
+.register span{
+  font-size: 16px;
+}
+
+.register a{
+  text-decoration: none;
+}
