@@ -124,14 +124,17 @@
           <mat-icon>{{ hide_confirmPass ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
       </mat-form-field>
-
       <div class="button-row">
-        <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">
+        <button type="submit" *ngIf="buttonHidden" (click)="onSubmit()" mat-raised-button color="primary">
           Register
+        </button>
+        <button mat-raised-button *ngIf="buttonShow" disabled color="primary">
+          Loading ....
         </button>
         <button type="reset" mat-raised-button color="warn">Cancel</button>
       </div>
     </form>
+
     <div class="login">
       <hr>
       <span>มีบัญชีอยู่แล้ว ? <a href="/login">เข้าสู่ระบบเลย</a> </span>

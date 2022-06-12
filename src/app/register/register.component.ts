@@ -53,11 +53,23 @@ export class RegisterComponent {
     );
   }
 
-  onSubmit() {
-    console.log('Submitted');
-    this.userService.addUser(this.registerForm.value).subscribe((data) => {
-      this.router.navigateByUrl('success');
-    });
+  buttonHidden: Boolean = true;
+  buttonShow: Boolean = false;
+  uid: String = '';
+  async onSubmit() {
+    if (this.registerForm.valid) {
+      this.buttonShow = true;
+      this.buttonHidden = false;
+      console.log('Submitted');
+
+      await this.userService
+        .addUser(this.registerForm.value)
+        .subscribe((data) => {
+          this.uid = data.id;
+          this.userService.saveUser(this.registerForm.value,this.uid);
+          this.router.navigateByUrl('verify');
+        });
+    }
   }
 
   checkPasswords: ValidatorFn = (
@@ -85,3 +97,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 // Check password match from https://stackoverflow.com/questions/51605737/confirm-password-validation-in-angular-6
+
+// this.userService.addUser(this.registerForm.value).subscribe((data) => {
+//   this.router.navigateByUrl('success');

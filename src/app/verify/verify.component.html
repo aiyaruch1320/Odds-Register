@@ -1,0 +1,40 @@
+<div class="verify">
+  <form [formGroup]="pinForm">
+    <div class="title">
+      <h2>We send PIN to : {{ email }}</h2>
+    </div>
+    <br />
+    <div class="pin-box">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Your PIN</mat-label>
+        <input maxlength="6" matInput formControlName="pin" required [errorStateMatcher]="matcher" />
+        <mat-error *ngIf="pinForm.hasError('required','pin')">โปรดกรอกช่องนี้</mat-error>
+        <mat-error *ngIf="pinForm.hasError('notSame')">
+          รหัส PIN ไม่ถูกต้อง
+        </mat-error>
+      </mat-form-field>
+        <input value="{{uid}}" hidden formControlName="uid" matInput/>
+    </div>
+    <p>id PIN: {{pin?.id}}</p>
+    <p>PIN: {{pin?.pin}}</p>
+    <div class="button-row">
+      <!-- <button
+        (click)="onSendPin()"
+        type="submit"
+        mat-raised-button
+        color="primary"
+      >
+        Send PIN
+      </button> -->
+      <button
+      (click)="onSendPin()"
+      [disabled]="buttonHidden"
+      type="submit"
+      mat-raised-button
+      color="primary"
+    >
+      Send PIN
+    </button>
+    </div>
+  </form>
+</div>

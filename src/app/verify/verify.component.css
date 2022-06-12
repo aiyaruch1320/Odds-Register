@@ -1,0 +1,13 @@
+.verify{
+  margin: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.pin-box{
+  margin-top: 5%;
+}
+
+.button-row{
+  margin-top: 6%;
+}

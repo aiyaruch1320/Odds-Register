@@ -1,0 +1,14 @@
+.box{
+  margin: 1% 10%;
+  border-radius: 3%;
+  background-color: azure;
+  padding: 2%;
+}
+
+.show-user{
+  margin: 0 3%;
+}
+
+.show-user ul{
+  list-style: none;
+}

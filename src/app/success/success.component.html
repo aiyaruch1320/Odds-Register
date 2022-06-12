@@ -1,1 +1,19 @@
-<p>success works!</p>
+<div *ngIf="users" class="box">
+  <h1>List user</h1> <hr>
+  <div *ngFor="let user of users" class="show-user">
+    <div class="title">
+      <h2>{{user.id}}</h2>
+    </div>
+    <div class="body">
+      <ul>
+        <li>Name: {{user.firstName}} {{user.lastName}}</li>
+        <li>Birth Date: {{user.birthDate | date}}</li>
+        <li>Sex: {{user.sex}}</li>
+        <li>Tel: {{user.tel}}</li>
+        <li>Email: {{user.email}}</li>
+        <li>Password: {{user.password}}</li>
+        <li>Status: {{user.statusAccount}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
